@@ -34,6 +34,14 @@ nav ul li a {
   text-decoration: none;
 }
 
+#login-btn {
+  color: #fff;
+  background-color: #111; /* Match your existing button color */
+  position: absolute;
+  top: 10px; /* Adjust top padding as needed */
+  right: 10px; /* Adjust right padding as needed */
+}
+
 .hero {
   background-color: #F0C14B;
   padding: 50px;
