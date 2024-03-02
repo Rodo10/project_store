@@ -1,43 +1,39 @@
-const loginBtn = document.getElementById('login-btn');
-const body = document.body;
-
-loginBtn.addEventListener('click', () => {
-  // Create a div for the login form
-  const loginFormContainer = document.createElement('div');
-  loginFormContainer.innerHTML = `
-    <div id="login-form-container">
-      <h2>Iniciar sesión</h2>
-      <form id="login-form">
-        <label for="username">Usuario:</label>
-        <input type="text" id="username" name="username" required>
-        <br>
-        <label for="password">Contraseña:</label>
-        <input type="password" id="password" name="password" required>
-        <br>
-        <button type="submit">Iniciar sesión</button>
-      </form>
-    </div>
-  `;
-
-  // Append the login form to the body
-  body.appendChild(loginFormContainer);
-
-  // Handle form submission
-  const loginFormElement = document.getElementById('login-form');
-  loginFormElement.addEventListener('submit', (event) => {
-    event.preventDefault();
-
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-
-    // Simulate successful login
-    if (username === 'admin' && password === 'password') {
-      // Close the login form container
-      body.removeChild(loginFormContainer);
-      // Redirect to profile page (replace with actual profile URL)
-      window.location.href = 'profile.html';
-    } else {
-      alert('Usuario o contraseña incorrectos');
-    }
+document.addEventListener("DOMContentLoaded", function () {
+    // Wait for the DOM to be fully loaded before adding the event listener
+  
+    // Get the login button by its ID
+    var loginButton = document.getElementById("login-btn");
+  
+    // Add a click event listener to the button
+    loginButton.addEventListener("click", function () {
+      // Redirect to the login form page
+      window.location.href = "login.html";
+    });
   });
-});
+  /* Password show and hide */
+
+  const showHiddenPass = (loginPass, loginEye) =>{
+    const input = document.getElementById(loginPass),
+          iconEye = document.getElementById(loginEye)
+ 
+    iconEye.addEventListener('click', () =>{
+       // Change password to text
+       if(input.type === 'password'){
+          // Switch to text
+          input.type = 'text'
+ 
+          // Icon change
+          iconEye.classList.add('ri-eye-line')
+          iconEye.classList.remove('ri-eye-off-line')
+       } else{
+          // Change to password
+          input.type = 'password'
+ 
+          // Icon change
+          iconEye.classList.remove('ri-eye-line')
+          iconEye.classList.add('ri-eye-off-line')
+       }
+    })
+ }
+ 
+ showHiddenPass('login-pass','login-eye')
